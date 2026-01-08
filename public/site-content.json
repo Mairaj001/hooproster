@@ -1,0 +1,153 @@
+{
+  "_documentation": {
+    "howToEdit": "Open this file in any text editor (VS Code, Notepad, TextEdit) to change your website content.",
+    "instructions": [
+      "1. Find the section you want to edit (hero, stats, features, etc.)",
+      "2. Change the text values between the quotes",
+      "3. Save the file",
+      "4. Refresh your website to see changes",
+      "WARNING: Do not remove quotes or change the structure. Only edit the text values."
+    ]
+  },
+
+  "global": {
+    "siteName": "HOOPROSTER",
+    "substackUrl": "https://hooproster.substack.com",
+    "twitterUrl": "https://twitter.com",
+    "linkedinUrl": "https://linkedin.com"
+  },
+
+  "hero": {
+    "badge": "Now on Substack",
+    "mainHeadline": "Elite Basketball Scouting.",
+    "mainHeadlineAccent": "Delivered to Your Inbox.",
+    "subHeadline": "The professional data and evaluation tools used by scouts, now available for everyone via Substack.",
+    "ctaText": "Get Started",
+    "secondaryCtaText": "Learn More"
+  },
+
+  "stats": {
+    "subscribersCount": "500+",
+    "subscribersLabel": "Subscribers",
+    "reportsCount": "200+",
+    "reportsLabel": "Reports",
+    "prospectsCount": "50+",
+    "prospectsLabel": "Prospects"
+  },
+
+  "features": {
+    "sectionTitle": "The Competitive Edge",
+    "sectionSubtitle": "Why scouts, analysts, and basketball enthusiasts choose Hooproster over traditional scouting services.",
+    "items": [
+      {
+        "icon": "Search",
+        "title": "Deep Talent Discovery",
+        "description": "Uncover hidden gems before they hit the mainstream radar. Our scouting network spans from high school to international leagues."
+      },
+      {
+        "icon": "FileText",
+        "title": "Detailed Player Reports",
+        "description": "Comprehensive breakdowns with advanced metrics, video analysis, and projection models that go beyond surface-level stats."
+      },
+      {
+        "icon": "Zap",
+        "title": "Instant Inbox Delivery",
+        "description": "Get actionable scouting intel delivered directly to you the moment reports drop. No login required, just open and read."
+      }
+    ]
+  },
+
+  "contentPreview": {
+    "sectionTitle": "Sample Reports",
+    "sectionSubtitle": "A preview of the scouting intel available to Pro subscribers.",
+    "viewAllText": "View All Reports",
+    "reports": [
+      {
+        "title": "NBA Draft 2026: Top 10 Prospects Deep Dive",
+        "date": "Jan 3, 2025",
+        "category": "Draft Coverage",
+        "tier": "PRO"
+      },
+      {
+        "title": "G-League Ignite: Rising Stars to Watch",
+        "date": "Dec 28, 2024",
+        "category": "Scouting Report",
+        "tier": "PRO"
+      },
+      {
+        "title": "International Prospects: European Tour Report",
+        "date": "Dec 22, 2024",
+        "category": "International",
+        "tier": "PRO"
+      },
+      {
+        "title": "Weekly Roundup: Stock Risers & Fallers",
+        "date": "Dec 20, 2024",
+        "category": "Analysis",
+        "tier": "FREE"
+      },
+      {
+        "title": "Cooper Flagg: The #1 Pick Breakdown",
+        "date": "Dec 15, 2024",
+        "category": "Player Spotlight",
+        "tier": "PRO"
+      }
+    ]
+  },
+
+  "pricing": {
+    "sectionTitle": "Simple, Transparent Pricing",
+    "sectionSubtitle": "Start free and upgrade when you're ready for full access.",
+    "currency": "$",
+    "tiers": [
+      {
+        "name": "Free",
+        "price": "0",
+        "interval": "",
+        "description": "Get started with weekly insights",
+        "features": [
+          "Weekly roundup newsletter",
+          "Public player previews",
+          "Community access"
+        ],
+        "ctaText": "Subscribe Free",
+        "featured": false
+      },
+      {
+        "name": "Pro",
+        "price": "15",
+        "interval": "/month",
+        "description": "Full access to all scouting content",
+        "features": [
+          "Everything in Free",
+          "Full player database",
+          "Video breakdowns",
+          "Exclusive scouting reports",
+          "Direct scout access",
+          "Early draft rankings"
+        ],
+        "ctaText": "Get Pro Access",
+        "featured": true,
+        "badge": "MOST POPULAR"
+      }
+    ]
+  },
+
+  "newsletter": {
+    "headline": "Join 500+ Scouts & Analysts",
+    "subheadline": "Get professional scouting reports delivered to your inbox. Start with our free weekly roundup.",
+    "ctaText": "Subscribe on Substack",
+    "footnote": "Free to subscribe. Upgrade anytime."
+  },
+
+  "footer": {
+    "copyright": "Hooproster. All rights reserved.",
+    "poweredBy": "Powered by",
+    "poweredByLink": "Substack",
+    "navLinks": [
+      { "label": "Features", "href": "#features" },
+      { "label": "Pricing", "href": "#pricing" },
+      { "label": "Subscribe", "href": "substack" }
+    ]
+  }
+}
