@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-// import { sanityClient } from "@/sanity/client";
-// import { landingPageQuery, transformSanityData } from "@/sanity/queries";
+import { client } from "@/sanity/lib/client";
+import { landingPageQuery, type LandingPageData } from "@/sanity/lib/queries";
 
 // Fallback to JSON data type
 interface SiteContentJSON {
@@ -92,33 +92,56 @@ const useSiteContent = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Fallback function to load from JSON
-    const loadFromJSON = async () => {
+    const loadContent = async () => {
       try {
-        const response = await fetch("/site-content.json");
-        if (!response.ok) {
-          throw new Error("Failed to load site content from JSON");
+        // Try to fetch from Sanity first
+        const data = await client.fetch<LandingPageData>(landingPageQuery);
+
+        if (data) {
+          // Transform Sanity data to match SiteContent interface
+          setContent(data as unknown as SiteContent);
+          setError(null);
+          setLoading(false);
+          return;
         }
-        const data = await response.json() as SiteContent;
-        setContent(data);
-        setError(
-          "⚠️ Using fallback JSON content. " +
-          "To use Sanity CMS: 1) Create a 'Landing Page' document in Sanity Studio, 2) Fill in the content, 3) Click 'Publish' (not just Save). " +
-          "Check browser console (F12) for detailed error messages."
-        );
-      } catch (jsonErr) {
-        console.error("Error loading JSON fallback:", jsonErr);
-        setError(
-          jsonErr instanceof Error
-            ? jsonErr.message
-            : "Failed to load content from both Sanity and JSON"
-        );
-      } finally {
-        setLoading(false);
+
+        // If no data from Sanity, throw error to trigger fallback
+        throw new Error("No landing page document found in Sanity");
+      } catch (sanityErr) {
+        console.error("Error loading from Sanity:", sanityErr);
+
+        // Fallback function to load from JSON
+        const loadFromJSON = async () => {
+          try {
+            const response = await fetch("/site-content.json");
+            if (!response.ok) {
+              throw new Error("Failed to load site content from JSON");
+            }
+            const data = await response.json() as SiteContent;
+            setContent(data);
+            setError(
+              "⚠️ Using fallback JSON content. " +
+              "To use Sanity CMS: 1) Create a 'Landing Page' document in Sanity Studio (/studio), " +
+              "2) Fill in the content, 3) Click 'Publish' (not just Save). " +
+              "Check browser console (F12) for detailed error messages."
+            );
+          } catch (jsonErr) {
+            console.error("Error loading JSON fallback:", jsonErr);
+            setError(
+              jsonErr instanceof Error
+                ? jsonErr.message
+                : "Failed to load content from both Sanity and JSON"
+            );
+          } finally {
+            setLoading(false);
+          }
+        };
+
+        await loadFromJSON();
       }
     };
 
-    loadFromJSON();
+    loadContent();
   }, []);
 
   return { content, loading, error };

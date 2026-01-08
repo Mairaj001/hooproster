@@ -1,6 +1,6 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import { landingPageSchema } from './landingPage'
+import landingPage from './landingPage'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [landingPageSchema],
+  types: [landingPage],
 }

@@ -27,7 +27,7 @@ export default function Header() {
     }
   };
 
-  if (loading || !content) {
+  if (loading || !content || !content.global) {
     return (
       <header className="fixed top-0 left-0 right-0 z-50 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,6 +38,11 @@ export default function Header() {
   }
 
   const { global } = content;
+
+  // Additional safety check
+  if (!global || !global.siteName) {
+    return null;
+  }
 
   return (
     <>

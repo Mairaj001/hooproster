@@ -147,7 +147,7 @@
     "navLinks": [
       { "label": "Features", "href": "#features" },
       { "label": "Pricing", "href": "#pricing" },
-      { "label": "Subscribe", "href": "substack" }
+      { "label": "Subscribe", "href": "#substack" }
     ]
   }
 }

@@ -10,10 +10,13 @@
 import { NextStudio } from 'next-sanity/studio'
 import config from '../../../sanity.config'
 
-export const dynamic = 'force-static'
+// Sanity Studio requires dynamic rendering
+export const dynamic = 'force-dynamic'
 
 export { metadata, viewport } from 'next-sanity/studio'
 
 export default function StudioPage() {
+  // Note: Sanity Studio v5 may show React 19 warnings about controlled/uncontrolled inputs
+  // These are from Sanity's internal components and are harmless - will be fixed in future Sanity updates
   return <NextStudio config={config} />
 }
